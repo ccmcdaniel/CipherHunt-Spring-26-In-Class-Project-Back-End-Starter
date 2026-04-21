@@ -1,0 +1,22 @@
+#:kivy 1.0
+#:import utils kivy.utils
+
+<TabButton>:
+    # size_hint: None, None
+    # size: 120, 100  # Adjust button size as needed
+    
+    # Remove default Kivy grey texture
+    background_normal: ''
+    background_down: '' # Prevents it from turning grey when clicked
+    
+    # Lavender Background Color (#C1C6E6)
+    background_color: utils.get_color_from_hex("#F4F4F4") if not root.is_active else utils.get_color_from_hex("#BAC0E6")
+
+    Image:
+        source: f"{app.resource_path}\\icons\\{root.image_filename}" # Replace with your actual filename
+        center: self.parent.center
+        size_hint: None, None
+        size: (root.height * 0.6, root.height * 0.6)
+        fit_mode: "contain"
+
+
