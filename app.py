@@ -9,9 +9,7 @@ from screens.dashboard.dashboard import DashboardScreen
 from screens.vault.vault import VaultScreen
 from screens.lab.lab import LabScreen
 from screens.settings.settings import SettingsScreen
-#from models.user_model import UserModel
-#from models.clue_model import ClueModel
-#from models.database import DatabaseModel
+from models.user import UserModel
 
 # Register the family under an alias (e.g., 'IBMPlex')
 
@@ -28,7 +26,8 @@ class MultiScreenApp(App):
             fn_bold=self.resource_path + "\\fonts\\ibm_plex_sans\\" + 'IBMPlexSans-Bold.ttf',
             fn_italic=self.resource_path + "\\fonts\\ibm_plex_sans\\" + 'IBMPlexSans-Italic.ttf'
         ) 
-        
+
+        self.user = UserModel()
         
         Builder.load_file(self.resource_path + "\\stylesheets\\style.kv")
         self.shell = AppShell()
