@@ -5,6 +5,8 @@ from kivy.properties import StringProperty, NumericProperty
 
 class DashboardScreen(Screen):
     username = StringProperty("Guest")
+    rank = StringProperty("Bystander")
+    current_points = NumericProperty(45)
 
     def __init__(self, **kw):
         super().__init__(**kw)
@@ -16,3 +18,5 @@ class DashboardScreen(Screen):
     def set_dashboard(self):
         app = App.get_running_app()
         self.username = app.user.username
+        self.rank = app.user.rank.current_rank
+        self.current_points = app.user.rank.current_points

@@ -16,7 +16,7 @@
             halign: 'center'
 
         Label:
-            text: f"[b]Rank: 45[/b]"
+            text: f"[b]Rank: {root.rank}[/b]"
             markup: True
             size_hint: (1, None)
             height: '150dp'
@@ -44,7 +44,7 @@
                     radius: [11, 0, 0, 11]
                 
         Label:
-            text: f"[b]45/100[/b]"
+            text: f"[b]{root.current_points}/???[/b]"
             markup: True
             size_hint: (1, None)
             height: '50dp'
