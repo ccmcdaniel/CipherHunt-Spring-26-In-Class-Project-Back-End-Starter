@@ -25,6 +25,14 @@ class RankModel:
                 rank = next_rank
 
         return rank
+    
+    @property
+    def next_rank_points(self):
+        for next_rank, points_needed in self.__ranks.items():
+            if self.__current_points < points_needed:
+                return points_needed
+
+        return points_needed
 
 
 
@@ -33,7 +41,7 @@ class UserModel:
         self.__id = 1
         self.__username = "johndoe1111"
         self.__email = "johndoe1111@gmail.com"
-        self.__rank = RankModel(786)
+        self.__rank = RankModel(654)
 
     @property
     def id(self):
@@ -69,4 +77,11 @@ if __name__ == "__main__":
     test_user.set(email="janedoe11@gmail.com")
     
     print(test_user.username, ", ", test_user.email)
-    print(test_user.username, ": Rank - ", test_user.rank.current_rank)
+    print(test_user.username, 
+          ": Rank - ", 
+          test_user.rank.current_rank,
+        "(", 
+        test_user.rank.current_points, 
+        "/", 
+        test_user.rank.next_rank_points,
+        ")")

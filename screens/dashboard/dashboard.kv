@@ -38,13 +38,13 @@
                 Color:
                     rgba: progress_bar_color_2
                 RoundedRectangle:
-                    size: (self.width * 0.6, self.height)#(self.width * root.rank_percent_complete, self.height)
+                    size: (self.width * root.rank_percent_complete, self.height)
                     pos: self.pos
                     # top-left, top-right, bottom-right, bottom-left
                     radius: [11, 0, 0, 11]
                 
         Label:
-            text: f"[b]{root.current_points}/???[/b]"
+            text: f"[b]{root.current_points}/{root.points_needed}[/b]"
             markup: True
             size_hint: (1, None)
             height: '50dp'

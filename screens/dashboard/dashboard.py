@@ -7,6 +7,8 @@ class DashboardScreen(Screen):
     username = StringProperty("Guest")
     rank = StringProperty("Bystander")
     current_points = NumericProperty(45)
+    points_needed = NumericProperty(100)
+    rank_percent_complete = NumericProperty(45.0/100.0)
 
     def __init__(self, **kw):
         super().__init__(**kw)
@@ -20,3 +22,5 @@ class DashboardScreen(Screen):
         self.username = app.user.username
         self.rank = app.user.rank.current_rank
         self.current_points = app.user.rank.current_points
+        self.points_needed = app.user.rank.next_rank_points
+        self.rank_percent_complete = self.current_points/self.points_needed
